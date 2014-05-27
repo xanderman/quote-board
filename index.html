@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block style %}
+  <link  type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+{% endblock %}
+
+{% block content %}
+  <div id="qb-quotes">
+    {% if quotes %}
+      {% for quote in quotes %}
+        <blockquote class='qb-quote-text'>{{ quote.text|escape }}</blockquote>
+        {% if quote.author %}
+          <span class='qb-author'>--{{ quote.author|escape }}</span>
+        {% else %}
+          <span class='qb-author'>--Anonymous</span>
+        {% endif %}
+        {% ifequal active 'mine' %}
+          <a href='/edit?key={{ quote.key }}'>Edit</a>
+        {% endifequal %}
+      {% endfor %}
+    {% else %}
+      <p>There are no quotes!</p>
+    {% endif %}
+  </div>
+{% endblock %}

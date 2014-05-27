@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link  type="text/css" rel="stylesheet" href="/stylesheets/base.css" />
+    {% block style %}Additional stylesheets{% endblock %}
+    <title>{% block title %}Welcome to the Quote Board!{% endblock %}</title>
+  </head>
+  <body>
+    <div id="qb-navbar">
+      <ul>
+        <li><a href="public"{% ifequal active 'public' %} class="active" {% endifequal %}>Public Quotes</a></li>
+        <li><a href="mine"{% ifequal active 'mine' %} class="active" {% endifequal %}>My Quotes</a></li>
+        <li><a href="create"{% ifequal active 'edit' %} class="active" {% endifequal %}>Add Quote</a></li>
+        <li><a href="{{ url }}">{{ url_linktext }}</a></li>
+      </ul>
+    </div>
+
+    {% if butter %}
+      <div id="qb-butter"><span>{{ butter }}</span></div>
+    {% endif %}
+
+    {% block content %}
+      Add content here!
+    {% endblock %}
+  </body>
+</html>
+

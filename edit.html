@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Add/edit a quote{% endblock %}
+
+{% block style %}
+  <link  type="text/css" rel="stylesheet" href="/stylesheets/edit.css" />
+{% endblock %}
+
+{% block content %}
+<div id="qb-editform">
+  <form action="{{ action }}" method="post">
+    {% if quote %}
+      <input type="hidden" name="key" value="{{ quote.key }}">
+    {% endif %}
+    <div class="quote-label"><label for="text">Quote:</label></div>
+    <div><textarea name="text" id="text" rows="3" cols="60">{{ quote.text }}</textarea></div>
+    <div><label for="author">Author:</label><input type="text" name="author" id="author" value="{{ quote.author }}"></div>
+    <div><label for="public">Public:</label><input type="checkbox" name="public" id="public" {{ quote.public|yesno:"checked=\"checked\"," }}></div>
+    <div><input type="submit" value="Submit"></div>
+  </form>
+</div>
+{% endblock %}

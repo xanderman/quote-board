@@ -1,0 +1,14 @@
+#qb-quotes {
+  padding: 2em .5em 0;
+}
+
+.qb-quote-text {
+  /* font-weight: bold; */
+  margin-left: 0.5cm;
+}
+
+.qb-author {
+  margin-left: 0.5in;
+  font-style: italic;
+  padding-right: 1em;
+}
